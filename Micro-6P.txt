@@ -1,0 +1,92 @@
+
+
+# 1.Using Docker[From command prompt]
+-> docker --version
+(know version)
+
+-> docker images
+(to check if any images are present or not)
+
+-> docker pull splunk/splunk:latest
+(install splunk/splunk image's latest version)
+
+-> docker network create --driver bridge --attachable kmit
+(create a network -  a hexadecimal code is generated)
+
+-> docker run --network kmit --name splunkE --hostname splunkE -p 8001:8000 -e "SPLUNK_PASSWORD=administrator" -e "SPLUNK_START_ARGS=--accept-license" -it splunk/splunk:latest
+
+-> docker pull splunk/universalforwarder:latest
+
+-> docker run --network kmit --name SUF --hostname SUF -e "SPLUNK_PASSWORD=administrator" -e "SPLUNK_START_ARGS=--accept-license" -e "SPLUNK_STANDALONE_URL=splunkE" -it splunk/universalforwarder:latest
+
+-> Open http://localhost:8001/
+(Enter the password which you have specified in run command of the respective network and any username you wish And then click Sign In
+
+
+-> docker ps
+(to check if any network is runnig)
+
+# 2. Using https://tryhackme.com/room/bpsplunk
+
+Follow the steps
+-> Create an account and login, open the above page
+-> Click on access machines and then Open VPN and follow steps
+then an ip address appears in place of access machines
+-> Now start Machine
+
+The same page is accessed when you open the localhost page.
+Now you can perform your analysis on the logs.
+
+
+#######################
+CLASS
+Click - > You are hacked
+
+1. Check Logs
+	Recent entry
+	IP Address's(VPN)- VPN also stores original address
+	Time Stamp
+Logs - Read only Persmission(files) unless super admin
+Write password
+connect to email
+pendrive is linked[5 factor login system]
+Deleting log files is difficult if it has read only permission
+2. Read Events
+	Day/Months/Years of time
+3. Remedies provided by tool SIEM - Security Information and 
+Event Management
+	Elastic-2
+	OSSec-8
+	Splunk-90
+Forensic tools
+Standard - can't record Credit card details
+/*kms server - windows activated*/
+
+all 3 OS
+(disdvantages)VM Ware 
+-Partitionating memory(RAM)
+-Inter Communication Issue[high degree configurtions]
+-unnecessay functionalities are working at background
+other than VM use Docker
+
+Docker
+-Provides same functionality as VM
+-Library / files required to run - Linux
+-RAM is freed efficiency increases
+-one tool one block can't install any other
+
+SPLUNK(Mostly used - EASY)
+Captures , Indexes , Correlates Real-Time Data
+Searchable repository = graphs, reports, alerts, dashboard, visualizations etc.
+############
+1.Virtual Box Logs
+2.Tutorial Data Logs	
+3.Online Machine
+[1,2 - From Docker]
+[3 - From Website online]
+#########
+1.Create Docker Account and download Docker Desktop
+@Not enough memory to run Docker = Goto settings and decrese the memory and CPU Levels
+2.Create an account in Splunk - useful if want to downoad any tools in splunk(created using docker)
+3.Create account in tryhackme.com(Try the excersises on large data set)
+##############

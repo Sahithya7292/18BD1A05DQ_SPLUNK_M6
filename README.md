@@ -9,7 +9,6 @@ From Command Prompt
 
  -> docker images
 (To check if any image is present or not)
-![image](https://user-images.githubusercontent.com/72086151/124495655-01ed4980-ddd6-11eb-95aa-84b1e9222a82.png)
 
  -> docker pull splunk/splunk:latest
 (pull the splunk/splunk image's latest version)
